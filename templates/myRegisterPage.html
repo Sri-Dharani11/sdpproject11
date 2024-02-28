@@ -1,0 +1,112 @@
+{% extends 'Navbar.html' %}
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <style>
+        body {
+            background-color: #343a40; /* Dark background color */
+            font-family: 'Arial', sans-serif;
+            color: #ffffff; /* Text color */
+        }
+
+        .container {
+            border-radius: 8px;
+            box-shadow: 0 0 20px rgba(255, 255, 255, 0.1); /* Glowing effect */
+            padding: 20px;
+            margin-top: 50px;
+        }
+
+        form {
+            max-width: 400px;
+            margin: 0 auto;
+        }
+
+        h1 {
+            color: #28a745;
+            text-align: right;
+            margin-bottom: 30px;
+        }
+
+        label {
+            color: #6c757d;
+        }
+
+
+    .form-control {
+        border: 1px solid #ccc; /* Light border */
+        border-radius: 8px;
+        margin-bottom: 20px;
+        margin-top:20px;
+        padding: 10px;
+    }
+
+
+        .btn-success {
+            background-color: #28a745;
+            border: none;
+            padding: 10px 20px;
+        }
+
+        .btn-success:hover {
+            background-color: #218838;
+        }
+
+        h6 {
+            color: #6c757d;
+            text-align: center;
+        }
+    </style>
+</head>
+{% block body %}
+
+<!------ Include the above in your HEAD tag ---------->
+<div class="container text-center">
+    <div class="row justify-content-center">
+        <div class="col-md-6">
+            <div class="card bg-dark text-white">
+                <div class="card-body">
+                    <form class="form-horizontal" action="{% url 'registerloginfunction' %}" method="POST">
+                        {% csrf_token %}
+                        <fieldset>
+                            <h1>Register</h1>
+
+                            <div class="form-group">
+                                <label for="name">Name</label>
+                                <input type="text" id="name" name="name" class="form-control" placeholder="Enter your name" required>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="email" >E-mail</label>
+                                <input type="email" id="email" name="email" class="form-control" placeholder="Enter your email" required>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="phonenumber">Phone number</label>
+                                <input type="tel" id="phonenumber" name="phonenumber" class="form-control" placeholder="Enter a valid phone number" required>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="password">Password</label>
+                                <input type="password" id="password" name="password" class="form-control" placeholder="Enter your password" required>
+                            </div>
+
+                            <div class="form-group">
+                                <button class="btn btn-success" type="submit">Register</button>
+                            </div>
+                        </fieldset>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<br><br>
+<div>
+    <h6>Source (Register Form) Available in this link - https://bootsnipp.com/snippets/k7A</h6>
+</div>
+{% endblock %}
+
+</html>

@@ -1,0 +1,36 @@
+{% extends 'navbar.html' %}
+<!--{% load static %}-->
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+{% block body %}
+
+<div class="container">
+  <div class="row">
+    <div class="col order-last">
+      First in DOM, ordered last
+        <div>
+    <form method="POST" action="{% url 'generate_otp'%}">
+        {% csrf_token %}
+        <label>Enter text: </label>
+        <input type="text" name="user_input" required>
+        <button type="submit">Submit</button>
+    </form>
+<!--    <h1> This is new TTM Homepage</h1>-->
+</div>
+    </div>
+    <div class="col">
+      Second in DOM, unordered
+        <br>
+        {{ ran1 }}
+    </div>
+
+  </div>
+</div>
+
+{% endblock %}
+</body>
+</html>

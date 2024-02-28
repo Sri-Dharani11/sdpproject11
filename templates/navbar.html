@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+    <title>Title</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
+</head>
+<body>
+<nav class="navbar navbar-expand-lg" style="background-color: #42f5dd;"  >
+  <div class="container-fluid" >
+    <a class="navbar-brand" href="#">Navbar</a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNav" >
+      <ul class="navbar-nav">
+        <li class="nav-item">
+          <a class="nav-link active" aria-current="page" href="{% url 'newHomePage' %}">Home</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#">Features</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="{% url 'travelPackage' %}">Travel</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="{% url 'print1' %}">Print</a>
+        </li>
+        <li class ="nav-item">
+          <a class="nav-link" href="{%url 'print2' %}"> RandomOTP</a>
+        </li>
+         <li class ="nav-item">
+          <a class="nav-link" href="{%url 'getdate1' %}"> DateTime</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link disabled" aria-disabled="true">Disabled</a>
+        </li>
+         <li class ="nav-item">
+          <a class="nav-link" href="{%url 'piechartcall' %}"> PieChart</a>
+        </li>
+        <li class ="nav-item">
+          <a class="nav-link" href="{%url 'rent_car' %}">RentCar</a>
+        </li>
+         <li class ="nav-item">
+          <a class="nav-link" href="http://127.0.0.1:8000/app/">CRUD_App</a>
+        </li>
+         <li class ="nav-item">
+          <a class="nav-link" href="{%url 'weatherpagecall' %}">Weather</a>
+        </li>
+        <li class ="nav-item">
+          <a class="nav-link" href="{%url 'feedbackformcall' %}">Contact Us</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link disabled" aria-disabled="true">Disabled</a>
+        </li>
+        <li>
+          {% if user.is_authenticated %}
+          <li class="nav-item">
+          <span class="nav-link">Welcome,{{user.username}}</span>
+        </li>
+          <li class="nav-item">
+          <a class="nav-link active" aria-current="page" href="{% url 'logout' %}">logout</a>
+        </li>
+          {% else %}
+        <li class="nav-item">
+          <a class="nav-link active" aria-current="page" href="{% url 'signup' %}">Signup</a>
+        </li>
+          <li class="nav-item">
+          <a class="nav-link active" aria-current="page" href="{% url 'login' %}">Login</a>
+        </li>
+          {% endif %}
+          </li>
+
+         </ul>
+        <div align="right" class="col">
+          <button class="btn btn-outline-success" type="submit" onclick="get_registercall()">Register</button>
+          <script>
+          function get_registercall() {
+          window.location.href = "{% url 'getregistercall' %}";}
+          </script>
+        </div>
+    </div>
+  </div>
+</nav>
+{% block body %}
+
+{% endblock %}
+</body>
+</html>
